@@ -225,7 +225,7 @@ fun QuotesScreen(modifier: Modifier = Modifier) {
 @Preview(showSystemUi = false, showBackground = true)
 @Preview(showSystemUi = true, showBackground = true)
 @Composable
-private fun QuotesScreenPreview() {
+fun QuotesScreenPreview() {
     QotesMADTheme {
         QuotesScreen()
     }
