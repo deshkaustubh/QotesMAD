@@ -27,6 +27,7 @@ import androidx.compose.ui.unit.sp
 import tech.kaustubhdeshpande.qotesmad.ui.theme.Bold20
 import tech.kaustubhdeshpande.qotesmad.ui.theme.Normal12
 import tech.kaustubhdeshpande.qotesmad.ui.theme.QotesMADTheme
+import tech.kaustubhdeshpande.qotesmad.view.components.CategoryCard
 import tech.kaustubhdeshpande.qotesmad.view.components.QuotesCard
 import tech.kaustubhdeshpande.qotesmad.view.components.SectionHeader
 
@@ -93,6 +94,96 @@ fun QuotesScreen(modifier: Modifier = Modifier) {
                 endText = "View All"
             )
             Spacer(modifier = Modifier.height(16.dp))
+            LazyRow(modifier = modifier, horizontalArrangement = Arrangement.spacedBy(8.dp)) {
+                item {
+                    QuotesCard(
+                        modifier = modifier,
+                        cardColor = Color.DarkGray,
+                        quote = "With great powers come great responsibilities",
+                        quoteAuthor = "Uncle Ben"
+                    )
+                }
+                item {
+                    QuotesCard(
+                        modifier = modifier,
+                        cardColor = Color.Gray,
+                        quote = "I am Iron Man",
+                        quoteAuthor = "Tony Stark"
+                    )
+                }
+                item {
+                    QuotesCard(
+                        modifier = modifier,
+                        cardColor = Color.Gray,
+                        quote = "With great powers come great responsibilities",
+                        quoteAuthor = "Uncle Ben"
+                    )
+                }
+                item {
+                    QuotesCard(
+                        modifier = modifier,
+                        cardColor = Color.DarkGray,
+                        quote = "With great powers come great responsibilities",
+                        quoteAuthor = "Uncle Ben"
+                    )
+                }
+            }
+        }
+
+        item {
+            SectionHeader(
+                modifier = modifier,
+                startText = "Categories",
+                endText = "View All"
+            )
+            Spacer(modifier = Modifier.height(16.dp))
+            // we are using .draw behind to avoid nesting in this case -> chat Akshay N
+            LazyRow(modifier = modifier, horizontalArrangement = Arrangement.spacedBy(8.dp)) {
+                item {
+                    CategoryCard(
+                        modifier = modifier,
+                        categoryColor = Color.DarkGray,
+                        category = "Life"
+                    )
+                }
+                item {
+                    CategoryCard(
+                        modifier = modifier,
+                        categoryColor = Color.DarkGray,
+                        category = "Life"
+                    )
+                }
+                item {
+                    CategoryCard(
+                        modifier = modifier,
+                        categoryColor = Color.DarkGray,
+                        category = "Life"
+                    )
+                }
+                item {
+                    CategoryCard(
+                        modifier = modifier,
+                        categoryColor = Color.DarkGray,
+                        category = "Life"
+                    )
+                }
+                item {
+                    CategoryCard(
+                        modifier = modifier,
+                        categoryColor = Color.DarkGray,
+                        category = "Life"
+                    )
+                }
+            }
+        }
+
+        item {
+            SectionHeader(
+                modifier = modifier,
+                startText = "Trending Quotes",
+                endText = "View All"
+            )
+            Spacer(modifier = modifier.height(16.dp))
             LazyRow(modifier = modifier, horizontalArrangement = Arrangement.spacedBy(8.dp)) {
                 item {
                     QuotesCard(
