@@ -32,7 +32,7 @@ import tech.kaustubhdeshpande.qotesmad.view.components.QuotesCard
 import tech.kaustubhdeshpande.qotesmad.view.components.SectionHeader
 
 @Composable
-fun QuotesScreen(modifier: Modifier = Modifier) {
+fun HomeScreen(modifier: Modifier = Modifier) {
     LazyColumn(
         modifier = Modifier
             .fillMaxSize()
@@ -227,6 +227,6 @@ fun QuotesScreen(modifier: Modifier = Modifier) {
 @Composable
 fun QuotesScreenPreview() {
     QotesMADTheme {
-        QuotesScreen()
+        HomeScreen()
     }
 }
