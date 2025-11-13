@@ -30,7 +30,7 @@ import androidx.compose.ui.text.font.FontStyle
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import tech.kaustubhdeshpande.qotesmad.ui.theme.Bold16
+import tech.kaustubhdeshpande.qotesmad.ui.theme.Medium16
 import tech.kaustubhdeshpande.qotesmad.ui.theme.Normal14
 
 @Composable
@@ -88,7 +88,7 @@ fun QuotesCard(
             Spacer(modifier = Modifier.weight(1f))
             Text(
                 text = quote,
-                style = MaterialTheme.typography.Bold16.copy(
+                style = MaterialTheme.typography.Medium16.copy(
                     lineHeight = 16.sp,
                     color = Color.White
                 ),

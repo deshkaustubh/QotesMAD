@@ -9,7 +9,6 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
-import tech.kaustubhdeshpande.qotesmad.ui.theme.Bold16
 import tech.kaustubhdeshpande.qotesmad.ui.theme.Medium16
 import tech.kaustubhdeshpande.qotesmad.ui.theme.Normal12
 
