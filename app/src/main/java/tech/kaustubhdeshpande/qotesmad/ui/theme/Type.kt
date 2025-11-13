@@ -248,3 +248,14 @@ val Typography.Normal16: TextStyle
         )
     }
 
+val Typography.Regular16: TextStyle
+    @Composable
+    get() {
+        return TextStyle(
+            fontFamily = FontFamily(Font(R.font.momo_signature_regular)),
+            fontWeight = FontWeight.Normal,
+            fontSize = 16.sp,
+            lineHeight = 24.sp
+        )
+    }
+

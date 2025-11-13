@@ -31,6 +31,7 @@ import tech.kaustubhdeshpande.qotesmad.ui.theme.Bold20
 import tech.kaustubhdeshpande.qotesmad.ui.theme.Normal12
 import tech.kaustubhdeshpande.qotesmad.ui.theme.QotesMADTheme
 import tech.kaustubhdeshpande.qotesmad.view.components.CategoryCard
+import tech.kaustubhdeshpande.qotesmad.view.components.QuoteBanner
 import tech.kaustubhdeshpande.qotesmad.view.components.QuotesCard
 import tech.kaustubhdeshpande.qotesmad.view.components.SectionHeader
 
@@ -56,39 +57,7 @@ fun HomeScreen(modifier: Modifier = Modifier) {
             )
         }
         item {
-            Box(
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .height(164.dp)
-                    .background(color = Color.LightGray, shape = RoundedCornerShape(8.dp)),
-                contentAlignment = Alignment.Center
-            ) {
-                Column(
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .padding(vertical = 16.dp),
-                    horizontalAlignment = Alignment.CenterHorizontally
-                ) {
-                    Text(
-                        modifier = Modifier
-                            .wrapContentHeight(),
-                        text = "BELIEVE IN",
-                        textAlign = TextAlign.Center,
-                        softWrap = true,
-                        style = MaterialTheme.typography.Normal12.copy(fontSize = 36.sp),
-                        letterSpacing = 4.sp
-                    )
-                    Text(
-                        modifier = Modifier
-                            .wrapContentHeight(),
-                        text = "YOURSELF",
-                        textAlign = TextAlign.Center,
-                        softWrap = true,
-                        style = MaterialTheme.typography.Normal12.copy(fontSize = 36.sp),
-                        letterSpacing = 4.sp
-                    )
-                }
-            }
+            QuoteBanner(modifier = modifier)
         }
         item {
             SectionHeader(
