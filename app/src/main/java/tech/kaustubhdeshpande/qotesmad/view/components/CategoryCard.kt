@@ -1,14 +1,11 @@
 package tech.kaustubhdeshpande.qotesmad.view.components
 
-import android.graphics.drawable.Icon
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.Favorite
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
@@ -24,7 +21,12 @@ import androidx.compose.ui.unit.dp
 import tech.kaustubhdeshpande.qotesmad.ui.theme.Normal14
 
 @Composable
-fun CategoryCard(modifier: Modifier = Modifier, categoryColor : Color, category: String, categoryIcon: ImageVector ) {
+fun CategoryCard(
+    modifier: Modifier = Modifier,
+    categoryColor: Color,
+    category: String,
+    categoryIcon: ImageVector
+) {
     Column(
         modifier = modifier
             .width(100.dp)
