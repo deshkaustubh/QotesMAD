@@ -1,5 +1,6 @@
 package tech.kaustubhdeshpande.qotesmad.view.components
 
+import android.graphics.drawable.Icon
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
@@ -18,11 +19,12 @@ import androidx.compose.ui.draw.drawBehind
 import androidx.compose.ui.geometry.CornerRadius
 import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.unit.dp
 import tech.kaustubhdeshpande.qotesmad.ui.theme.Normal14
 
 @Composable
-fun CategoryCard(modifier: Modifier = Modifier, categoryColor : Color, category: String ) {
+fun CategoryCard(modifier: Modifier = Modifier, categoryColor : Color, category: String, categoryIcon: ImageVector ) {
     Column(
         modifier = modifier
             .width(100.dp)
@@ -39,7 +41,7 @@ fun CategoryCard(modifier: Modifier = Modifier, categoryColor : Color, category:
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
         Icon(
-            imageVector = Icons.Default.Favorite,
+            imageVector = categoryIcon,
             contentDescription = "ic_favorite",
             tint = categoryColor,
             modifier = modifier

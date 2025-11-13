@@ -12,6 +12,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.wrapContentHeight
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.LazyRow
+import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
@@ -24,6 +25,7 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import tech.kaustubhdeshpande.qotesmad.data.QuoteCategory
 import tech.kaustubhdeshpande.qotesmad.ui.theme.Bold20
 import tech.kaustubhdeshpande.qotesmad.ui.theme.Normal12
 import tech.kaustubhdeshpande.qotesmad.ui.theme.QotesMADTheme
@@ -139,39 +141,16 @@ fun HomeScreen(modifier: Modifier = Modifier) {
             Spacer(modifier = Modifier.height(16.dp))
             // we are using .draw behind to avoid nesting in this case -> chat Akshay N
             LazyRow(modifier = modifier, horizontalArrangement = Arrangement.spacedBy(8.dp)) {
-                item {
+
+                // getting the enum class
+                val categories = QuoteCategory.values()
+
+                items(categories.toList()) { category ->
                     CategoryCard(
                         modifier = modifier,
-                        categoryColor = Color.DarkGray,
-                        category = "Life"
-                    )
-                }
-                item {
-                    CategoryCard(
-                        modifier = modifier,
-                        categoryColor = Color.DarkGray,
-                        category = "Life"
-                    )
-                }
-                item {
-                    CategoryCard(
-                        modifier = modifier,
-                        categoryColor = Color.DarkGray,
-                        category = "Life"
-                    )
-                }
-                item {
-                    CategoryCard(
-                        modifier = modifier,
-                        categoryColor = Color.DarkGray,
-                        category = "Life"
-                    )
-                }
-                item {
-                    CategoryCard(
-                        modifier = modifier,
-                        categoryColor = Color.DarkGray,
-                        category = "Life"
+                        categoryColor = category.bgColor,
+                        category = category.displayName,
+                        categoryIcon = category.icon
                     )
                 }
             }
