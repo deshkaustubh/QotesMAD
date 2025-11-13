@@ -11,6 +11,12 @@ data class Quote(
         fun getQuotes(): List<Quote> {
             return listOf(
                 Quote(
+                    0,
+                    "With great powers come great responsibilities",
+                    "Uncle Ben",
+                    QuoteCategory.COURAGE
+                ),
+                Quote(
                     1,
                     "Never forget those that helped before you even had to ask",
                     "ig-glossy_minds",

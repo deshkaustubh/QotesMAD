@@ -25,6 +25,7 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import tech.kaustubhdeshpande.qotesmad.data.Quote
 import tech.kaustubhdeshpande.qotesmad.data.QuoteCategory
 import tech.kaustubhdeshpande.qotesmad.ui.theme.Bold20
 import tech.kaustubhdeshpande.qotesmad.ui.theme.Normal12
@@ -96,37 +97,16 @@ fun HomeScreen(modifier: Modifier = Modifier) {
                 endText = "View All"
             )
             Spacer(modifier = Modifier.height(16.dp))
+
+            val quotes = Quote.getQuotes()
             LazyRow(modifier = modifier, horizontalArrangement = Arrangement.spacedBy(8.dp)) {
-                item {
+
+                items(quotes) { q ->
                     QuotesCard(
                         modifier = modifier,
-                        cardColor = Color.DarkGray,
-                        quote = "With great powers come great responsibilities",
-                        quoteAuthor = "Uncle Ben"
-                    )
-                }
-                item {
-                    QuotesCard(
-                        modifier = modifier,
-                        cardColor = Color.Gray,
-                        quote = "I am Iron Man",
-                        quoteAuthor = "Tony Stark"
-                    )
-                }
-                item {
-                    QuotesCard(
-                        modifier = modifier,
-                        cardColor = Color.Gray,
-                        quote = "With great powers come great responsibilities",
-                        quoteAuthor = "Uncle Ben"
-                    )
-                }
-                item {
-                    QuotesCard(
-                        modifier = modifier,
-                        cardColor = Color.DarkGray,
-                        quote = "With great powers come great responsibilities",
-                        quoteAuthor = "Uncle Ben"
+                        cardColor = q.category.bgColor,
+                        quote = q.text,
+                        quoteAuthor = q.author
                     )
                 }
             }
@@ -163,37 +143,17 @@ fun HomeScreen(modifier: Modifier = Modifier) {
                 endText = "View All"
             )
             Spacer(modifier = modifier.height(16.dp))
+
+            val quotes = Quote.getQuotes()
+
             LazyRow(modifier = modifier, horizontalArrangement = Arrangement.spacedBy(8.dp)) {
-                item {
+
+                items(quotes) { q ->
                     QuotesCard(
                         modifier = modifier,
-                        cardColor = Color.DarkGray,
-                        quote = "With great powers come great responsibilities",
-                        quoteAuthor = "Uncle Ben"
-                    )
-                }
-                item {
-                    QuotesCard(
-                        modifier = modifier,
-                        cardColor = Color.Gray,
-                        quote = "I am Iron Man",
-                        quoteAuthor = "Tony Stark"
-                    )
-                }
-                item {
-                    QuotesCard(
-                        modifier = modifier,
-                        cardColor = Color.Gray,
-                        quote = "With great powers come great responsibilities",
-                        quoteAuthor = "Uncle Ben"
-                    )
-                }
-                item {
-                    QuotesCard(
-                        modifier = modifier,
-                        cardColor = Color.DarkGray,
-                        quote = "With great powers come great responsibilities",
-                        quoteAuthor = "Uncle Ben"
+                        cardColor = q.category.bgColor,
+                        quote = q.text,
+                        quoteAuthor = q.author
                     )
                 }
             }
