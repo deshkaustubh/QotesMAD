@@ -4,7 +4,9 @@ import androidx.compose.runtime.Composable
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
+import tech.kaustubhdeshpande.qotesmad.view.screens.ExploreScreen
 import tech.kaustubhdeshpande.qotesmad.view.screens.HomeScreen
+import tech.kaustubhdeshpande.qotesmad.view.screens.SavedScreen
 
 @Composable
 fun AppNavGraph(navController: NavHostController) {
@@ -16,10 +18,10 @@ fun AppNavGraph(navController: NavHostController) {
             HomeScreen()
         }
         composable(QuotesScreenRoutes.Explore.route) {
-            HomeScreen()
+            ExploreScreen()
         }
         composable(QuotesScreenRoutes.Saved.route) {
-            HomeScreen()
+            SavedScreen()
         }
     }
 }

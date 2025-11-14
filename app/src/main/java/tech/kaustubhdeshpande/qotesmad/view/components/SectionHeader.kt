@@ -1,5 +1,6 @@
 package tech.kaustubhdeshpande.qotesmad.view.components
 
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -13,7 +14,7 @@ import tech.kaustubhdeshpande.qotesmad.ui.theme.Medium16
 import tech.kaustubhdeshpande.qotesmad.ui.theme.Normal12
 
 @Composable
-fun SectionHeader(modifier: Modifier = Modifier, startText: String, endText: String) {
+fun SectionHeader(modifier: Modifier = Modifier, startText: String, endText: String, onNavigate: () -> Unit = {}) {
     Row(
         modifier = Modifier.fillMaxWidth(),
         horizontalArrangement = Arrangement.SpaceBetween
@@ -28,7 +29,8 @@ fun SectionHeader(modifier: Modifier = Modifier, startText: String, endText: Str
             text = endText,
             color = Color.Blue,
             fontWeight = FontWeight.Bold,
-            style = MaterialTheme.typography.Normal12
+            style = MaterialTheme.typography.Normal12,
+            modifier = modifier.clickable(onClick = onNavigate)
         )
     }
 }

@@ -28,7 +28,7 @@ import tech.kaustubhdeshpande.qotesmad.view.components.QuotesCard
 import tech.kaustubhdeshpande.qotesmad.view.components.SectionHeader
 
 @Composable
-fun HomeScreen(modifier: Modifier = Modifier) {
+fun HomeScreen(modifier: Modifier = Modifier,onNavigateToExplore: (category: String?) -> Unit = {}) {
     LazyColumn(
         modifier = Modifier
             .fillMaxSize()
@@ -55,7 +55,8 @@ fun HomeScreen(modifier: Modifier = Modifier) {
             SectionHeader(
                 modifier = modifier,
                 startText = "Latest Quotes",
-                endText = "View All"
+                endText = "View All",
+                onNavigate = { onNavigateToExplore(null) }
             )
             Spacer(modifier = Modifier.height(16.dp))
 
@@ -77,7 +78,8 @@ fun HomeScreen(modifier: Modifier = Modifier) {
             SectionHeader(
                 modifier = modifier,
                 startText = "Categories",
-                endText = "View All"
+                endText = "View All",
+                onNavigate = {onNavigateToExplore(null)}
             )
             Spacer(modifier = Modifier.height(16.dp))
             // we are using .draw behind to avoid nesting in this case -> chat Akshay N
@@ -101,7 +103,8 @@ fun HomeScreen(modifier: Modifier = Modifier) {
             SectionHeader(
                 modifier = modifier,
                 startText = "Trending Quotes",
-                endText = "View All"
+                endText = "View All",
+                onNavigate = { onNavigateToExplore(null) }
             )
             Spacer(modifier = modifier.height(16.dp))
 
