@@ -3,7 +3,6 @@ package tech.kaustubhdeshpande.qotesmad.view.screens
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
@@ -30,12 +29,15 @@ import tech.kaustubhdeshpande.qotesmad.ui.theme.QotesMADTheme
 import tech.kaustubhdeshpande.qotesmad.view.components.ExploreQuotesCard
 
 @Composable
-fun ExploreScreen(modifier: Modifier = Modifier) {
+fun ExploreScreen(modifier: Modifier = Modifier, initialCategoryName: String? = null) {
     // include a `null` entry as first tab to represent "All"
     val categories: List<QuoteCategory?> = listOf(null) + QuoteCategory.values().toList()
 
+    val initialCategory = QuoteCategory.getCategory(initialCategoryName)
+    val initialIndex = categories.indexOf(initialCategory).takeIf { it >= 0 } ?: 0
+
     // remember selected tab index (0 == All)
-    var selectedIndex by rememberSaveable { mutableIntStateOf(0) }
+    var selectedIndex by rememberSaveable { mutableIntStateOf(initialIndex) }
 
     LazyColumn(
         modifier = modifier

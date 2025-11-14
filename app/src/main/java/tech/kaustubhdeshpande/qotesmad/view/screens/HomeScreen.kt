@@ -1,5 +1,6 @@
 package tech.kaustubhdeshpande.qotesmad.view.screens
 
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
@@ -28,7 +29,10 @@ import tech.kaustubhdeshpande.qotesmad.view.components.QuotesCard
 import tech.kaustubhdeshpande.qotesmad.view.components.SectionHeader
 
 @Composable
-fun HomeScreen(modifier: Modifier = Modifier,onNavigateToExplore: (category: String?) -> Unit = {}) {
+fun HomeScreen(
+    modifier: Modifier = Modifier,
+    onNavigateToExplore: (category: String?) -> Unit = {}
+) {
     LazyColumn(
         modifier = Modifier
             .fillMaxSize()
@@ -62,7 +66,6 @@ fun HomeScreen(modifier: Modifier = Modifier,onNavigateToExplore: (category: Str
 
             val quotes = Quote.getQuotes()
             LazyRow(modifier = modifier, horizontalArrangement = Arrangement.spacedBy(8.dp)) {
-
                 items(quotes) { q ->
                     QuotesCard(
                         modifier = modifier,
@@ -79,7 +82,7 @@ fun HomeScreen(modifier: Modifier = Modifier,onNavigateToExplore: (category: Str
                 modifier = modifier,
                 startText = "Categories",
                 endText = "View All",
-                onNavigate = {onNavigateToExplore(null)}
+                onNavigate = { onNavigateToExplore(null) }
             )
             Spacer(modifier = Modifier.height(16.dp))
             // we are using .draw behind to avoid nesting in this case -> chat Akshay N
@@ -90,7 +93,9 @@ fun HomeScreen(modifier: Modifier = Modifier,onNavigateToExplore: (category: Str
 
                 items(categories.toList()) { category ->
                     CategoryCard(
-                        modifier = modifier,
+                        modifier = Modifier
+                            .clickable { onNavigateToExplore(category.name) }
+                            .then(modifier),
                         categoryColor = category.bgColor,
                         category = category.displayName,
                         categoryIcon = category.icon
