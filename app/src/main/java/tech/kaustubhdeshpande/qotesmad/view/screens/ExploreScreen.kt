@@ -1,7 +1,10 @@
 package tech.kaustubhdeshpande.qotesmad.view.screens
 
 import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
@@ -13,7 +16,6 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableIntStateOf
-import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
@@ -25,7 +27,7 @@ import androidx.compose.ui.unit.sp
 import tech.kaustubhdeshpande.qotesmad.data.Quote
 import tech.kaustubhdeshpande.qotesmad.data.QuoteCategory
 import tech.kaustubhdeshpande.qotesmad.ui.theme.QotesMADTheme
-import tech.kaustubhdeshpande.qotesmad.view.components.QuotesCard
+import tech.kaustubhdeshpande.qotesmad.view.components.ExploreQuotesCard
 
 @Composable
 fun ExploreScreen(modifier: Modifier = Modifier) {
@@ -86,12 +88,14 @@ fun ExploreScreen(modifier: Modifier = Modifier) {
             Quote.getQuotes().filter { selectedCategory == null || it.category == selectedCategory }
 
         items(filteredQuotes) { q ->
-            QuotesCard(
-                modifier = Modifier.padding(vertical = 8.dp),
+            ExploreQuotesCard(
+                modifier = modifier.padding(vertical = 8.dp),
                 cardColor = q.category.bgColor,
                 quote = q.text,
-                quoteAuthor = q.author
+                quoteAuthor = q.author,
+                category = q.category.displayName,
             )
+            Spacer(modifier = modifier.height(16.dp))
         }
     }
 }
