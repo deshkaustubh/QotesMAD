@@ -12,6 +12,7 @@ import androidx.compose.material3.Tab
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
@@ -32,7 +33,7 @@ fun ExploreScreen(modifier: Modifier = Modifier) {
     val categories: List<QuoteCategory?> = listOf(null) + QuoteCategory.values().toList()
 
     // remember selected tab index (0 == All)
-    var selectedIndex by rememberSaveable { mutableStateOf(0) }
+    var selectedIndex by rememberSaveable { mutableIntStateOf(0) }
 
     LazyColumn(
         modifier = modifier
