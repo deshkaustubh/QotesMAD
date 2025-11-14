@@ -73,18 +73,10 @@ Or run the app configuration in Android Studio.
 
 ## Screenshots
 
-<p align="center">
-  <img src=![img.png](img.png) alt="Home screen showing latest, categories and trending quotes" width="360" />
-  <img src=![img_1.png](img_1.png) alt="Explore screen filtered by Life category" width="360" />
-</p>
-
-
-Markdown table fallback (if HTML not desired):
-```markdown
 | Home | Explore |
 |------|---------|
-| ![Home screen showing latest, categories and trending quotes](docs/images/home-light.png) | ![Explore screen filtered by Life category](docs/images/explore-life-light.png) |
-```
+| ![img.png](img.png) | ![img_1.png](img_1.png) |
+
 
 Optional dark theme pair (when added): duplicate with `-dark` suffix and show a second row.
 
