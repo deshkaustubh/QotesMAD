@@ -2,6 +2,12 @@
 
 Minimal Jetpack Compose quotes demo (single module, in‑memory data, Material 3, Navigation Compose).
 
+## Screenshots
+
+| Home | Explore |
+|------|---------|
+| ![img.png](img.png) | ![img_1.png](img_1.png) |
+
 ## Overview
 Home: highlight + latest + categories + trending.
 Explore: tabbed category filtering (All + each category, optional `?category=` param).
@@ -70,21 +76,6 @@ Or run the app configuration in Android Studio.
 ## Data Model
 `Quote(id, text, author, category, avatar)` from static list.  
 `QuoteCategory` enum: displayName, icon, bgColor (+ helper lookup).
-
-## Screenshots
-
-| Home | Explore |
-|------|---------|
-| ![img.png](img.png) | ![img_1.png](img_1.png) |
-
-
-Optional dark theme pair (when added): duplicate with `-dark` suffix and show a second row.
-
-## Images Guide
-Put assets in `docs/images/`.
-Pattern: `<screen>-<state>-<theme>.png` (e.g. `explore-life-light.png`).
-Markdown: `![Explore Life tab](docs/images/explore-life-light.png)`
-Side-by-side (HTML) for light/dark if needed.
 
 ## Roadmap (Condensed)
 1. Favorites (Saved content)  
