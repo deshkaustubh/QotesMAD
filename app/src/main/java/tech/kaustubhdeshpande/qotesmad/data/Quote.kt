@@ -92,7 +92,7 @@ data class Quote(
                 Quote(
                     14,
                     "Love is the most beautiful thing in the world.",
-                    "Unknown",
+                    "Kaustubh Deshpande",
                     QuoteCategory.LOVE
                 ),
                 Quote(

@@ -1,6 +1,7 @@
 package tech.kaustubhdeshpande.qotesmad.view.components
 
 import androidx.compose.foundation.background
+import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -51,8 +52,10 @@ fun ExploreQuotesCard(
         modifier = Modifier
             .wrapContentHeight()
             .fillMaxWidth()
-            .clip(shape = RoundedCornerShape(16.dp)),
-        elevation = CardDefaults.cardElevation(16.dp)
+            .border(1.dp, color = cardColor.copy(0.3f), shape = RoundedCornerShape(16.dp))
+            .clip(shape = RoundedCornerShape(16.dp))
+        ,
+        elevation = CardDefaults.cardElevation(0.dp)
     ) {
         Column(
             modifier = Modifier
