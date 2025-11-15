@@ -36,7 +36,6 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import tech.kaustubhdeshpande.qotesmad.ui.theme.Medium14
 import tech.kaustubhdeshpande.qotesmad.ui.theme.Medium16
-import tech.kaustubhdeshpande.qotesmad.ui.theme.Normal10
 import tech.kaustubhdeshpande.qotesmad.ui.theme.Normal12
 import tech.kaustubhdeshpande.qotesmad.ui.theme.QotesMADTheme
 
@@ -52,7 +51,7 @@ fun ExploreQuotesCard(
         modifier = Modifier
             .wrapContentHeight()
             .fillMaxWidth()
-            .border(1.dp, color = cardColor.copy(0.3f), shape = RoundedCornerShape(16.dp))
+            .border(1.dp, color = cardColor.copy(0.2f), shape = RoundedCornerShape(16.dp))
             .clip(shape = RoundedCornerShape(16.dp))
         ,
         elevation = CardDefaults.cardElevation(0.dp)
