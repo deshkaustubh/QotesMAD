@@ -48,7 +48,7 @@ fun HomeScreen(
             Text(
                 text = "Awesome quotes from our community",
                 fontWeight = FontWeight.ExtraLight,
-                style = MaterialTheme.typography.Normal12.copy(color = Color.Black.copy(alpha = 0.8f)),
+                style = MaterialTheme.typography.Normal12,
                 fontSize = 12.sp,
             )
         }

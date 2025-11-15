@@ -60,7 +60,7 @@ fun ExploreQuotesCard(
         Column(
             modifier = Modifier
                 .fillMaxSize()
-                .background(color = Color(0xFFFFFFFF))
+                .background(color = MaterialTheme.colorScheme.surface)
                 .padding(16.dp)
         ) {
             Row(

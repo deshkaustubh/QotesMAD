@@ -60,7 +60,7 @@ fun CategoryCard(
         Text(
             text = category,
             style = MaterialTheme.typography.Normal14.copy(
-                color = Color.Black
+                color = MaterialTheme.colorScheme.primary
             )
         )
     }

@@ -24,13 +24,14 @@ import tech.kaustubhdeshpande.qotesmad.ui.theme.Regular16
 
 @Composable
 fun QuoteBanner(modifier: Modifier = Modifier) {
+    val circlesColor = MaterialTheme.colorScheme.surface.copy(alpha = 0.1f)
     Box(
         modifier = Modifier
             .fillMaxWidth()
             .height(164.dp)
             .background(color = Color(0xFF6366f1), shape = RoundedCornerShape(8.dp))
             .drawBehind {
-                val circleColor = Color.White.copy(alpha = 0.1f)
+                val circleColor = circlesColor
                 val radiusX = size.width / 2f
                 val radiusY = size.height / 2f
 

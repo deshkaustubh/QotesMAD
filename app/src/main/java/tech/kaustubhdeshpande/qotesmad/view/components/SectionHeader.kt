@@ -21,13 +21,13 @@ fun SectionHeader(modifier: Modifier = Modifier, startText: String, endText: Str
     ) {
         Text(
             text = startText,
-            color = Color.Black,
+            color = MaterialTheme.colorScheme.primary,
             fontWeight = FontWeight.SemiBold,
             style = MaterialTheme.typography.Medium16
         )
         Text(
             text = endText,
-            color = Color.Blue,
+            color = MaterialTheme.colorScheme.onBackground,
             fontWeight = FontWeight.Bold,
             style = MaterialTheme.typography.Normal12,
             modifier = modifier.clickable(onClick = onNavigate)
