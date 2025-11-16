@@ -1,6 +1,7 @@
 package tech.kaustubhdeshpande.qotesmad
 
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Modifier
 import androidx.navigation.NavHostController
 import androidx.navigation.NavType
 import androidx.navigation.compose.NavHost
@@ -13,10 +14,11 @@ import java.net.URLEncoder
 import java.nio.charset.StandardCharsets
 
 @Composable
-fun AppNavGraph(navController: NavHostController) {
+fun AppNavGraph(navController: NavHostController, modifier: Modifier = Modifier) {
     NavHost(
         navController = navController,
-        startDestination = QuotesScreenRoutes.Home.route
+        startDestination = QuotesScreenRoutes.Home.route,
+        modifier = modifier
     ) {
         composable(QuotesScreenRoutes.Home.route) {
             HomeScreen(
@@ -42,12 +44,13 @@ fun AppNavGraph(navController: NavHostController) {
             )
         ) { backStackEntry ->
             val categoryName = backStackEntry.arguments?.getString("category")
-            ExploreScreen(initialCategoryName = categoryName)
+            ExploreScreen(
+                initialCategoryName = categoryName
+            )
         }
 
         composable(QuotesScreenRoutes.Saved.route) {
             SavedScreen()
         }
-
     }
 }
