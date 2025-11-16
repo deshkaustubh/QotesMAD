@@ -2,6 +2,7 @@ package tech.kaustubhdeshpande.qotesmad
 
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavHostController
 import androidx.navigation.NavType
 import androidx.navigation.compose.NavHost
@@ -15,6 +16,7 @@ import java.nio.charset.StandardCharsets
 
 @Composable
 fun AppNavGraph(navController: NavHostController, modifier: Modifier = Modifier) {
+    val viewModel: FavouriteViewModel = viewModel()
     NavHost(
         navController = navController,
         startDestination = QuotesScreenRoutes.Home.route,
@@ -45,12 +47,15 @@ fun AppNavGraph(navController: NavHostController, modifier: Modifier = Modifier)
         ) { backStackEntry ->
             val categoryName = backStackEntry.arguments?.getString("category")
             ExploreScreen(
-                initialCategoryName = categoryName
+                initialCategoryName = categoryName,
+                favViewModel = viewModel
             )
         }
 
         composable(QuotesScreenRoutes.Saved.route) {
-            SavedScreen()
+            SavedScreen(
+                favViewModel = viewModel
+            )
         }
     }
 }

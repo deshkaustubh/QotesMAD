@@ -36,8 +36,8 @@ fun BottomNavigationBar(
         NavigationBarItem(
             selected = currentRoute == QuotesScreenRoutes.Saved.route,
             onClick = { onNavigate(QuotesScreenRoutes.Saved.route) },
-            icon = { Icon(Icons.Filled.Favorite, contentDescription = "Saved") },
-            label = { Text("Saved") }
+            icon = { Icon(Icons.Filled.Favorite, contentDescription = "Favorites") },
+            label = { Text("Favorites") }
         )
     }
 }

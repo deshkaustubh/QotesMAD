@@ -15,6 +15,7 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableIntStateOf
+import androidx.compose.runtime.remember
 import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
@@ -23,20 +24,24 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import tech.kaustubhdeshpande.qotesmad.FavouriteViewModel
 import tech.kaustubhdeshpande.qotesmad.data.Quote
 import tech.kaustubhdeshpande.qotesmad.data.QuoteCategory
 import tech.kaustubhdeshpande.qotesmad.ui.theme.QotesMADTheme
 import tech.kaustubhdeshpande.qotesmad.view.components.ExploreQuotesCard
 
 @Composable
-fun ExploreScreen(modifier: Modifier = Modifier, initialCategoryName: String? = null) {
+fun ExploreScreen(
+    modifier: Modifier = Modifier,
+    initialCategoryName: String? = null,
+    favViewModel: FavouriteViewModel
+) {
     // include a `null` entry as first tab to represent "All"
     val categories: List<QuoteCategory?> = listOf(null) + QuoteCategory.values().toList()
 
     val initialCategory = QuoteCategory.getCategory(initialCategoryName)
     val initialIndex = categories.indexOf(initialCategory).takeIf { it >= 0 } ?: 0
 
-    // remember selected tab index (0 == All)
     var selectedIndex by rememberSaveable { mutableIntStateOf(initialIndex) }
 
     LazyColumn(
@@ -84,29 +89,29 @@ fun ExploreScreen(modifier: Modifier = Modifier, initialCategoryName: String? = 
             }
         }
 
-        // compute selected category using the same list (keeps indexes aligned)
         val selectedCategory: QuoteCategory? = categories.getOrNull(selectedIndex)
         val filteredQuotes =
             Quote.getQuotes().filter { selectedCategory == null || it.category == selectedCategory }
 
-        items(filteredQuotes) { q ->
+        items(filteredQuotes, key = { it.id }) { q ->
             ExploreQuotesCard(
                 modifier = modifier.padding(vertical = 8.dp),
                 cardColor = q.category.bgColor,
-                quote = q.text,
+                quote = q,
                 quoteAuthor = q.author,
                 category = q.category.displayName,
+                favViewModel = favViewModel
             )
             Spacer(modifier = modifier.height(16.dp))
         }
     }
 }
 
-@Preview(showBackground = true)
-@Preview(showSystemUi = true)
+@Preview(showBackground = true, showSystemUi = true)
 @Composable
 private fun ExploreScreenPreview() {
     QotesMADTheme {
-        ExploreScreen()
+        val fakeVm = remember { FavouriteViewModel() }
+        ExploreScreen(favViewModel = fakeVm)
     }
 }
